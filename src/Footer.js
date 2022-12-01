@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
-export default function Footer(){
-    return(
+export default function Footer({cards}) {
+    return (
         <FooterConcluido>
-            <h1>FOoter</h1>
+            <h1>X/{cards.length} Concluídos</h1>
         </FooterConcluido>
     )
 }
@@ -24,4 +24,11 @@ const FooterConcluido = styled.div`
   font-size: 18px;
   color: #333333;
   padding: 10px;
+
+  .button{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin: 20px;
+  }
 `

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Logo from "./Logo"
 import Cards from "./Cards";
 import Footer from "./Footer"
+import cards from "./components/cards"
 
 
 export default function App() {
@@ -10,8 +11,8 @@ export default function App() {
     <ScreenContainer>
       <GlobalStyle />
       <Logo />
-      <Cards />
-      <Footer />
+      <Cards cards={cards}/>
+      <Footer cards={cards} />
     </ScreenContainer>
   );
 }
