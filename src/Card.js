@@ -5,13 +5,12 @@ import { useState } from "react"
 import coresBotoes from "./components/cores"
 
 
-
-
-export default function Card({ indice, abriuCarta, abrirCarta, cards }) {
+export default function Card({ indice, abriuCarta, abrirCarta, cards, jaRespondi }) {
 
     const {VERDE, AMARELO, VERMELHO} = coresBotoes
     const {question, answer} = cards
     const [CartaVirada, setCartaVirada] = useState(false)
+
 
     return (
         <>
@@ -32,10 +31,9 @@ export default function Card({ indice, abriuCarta, abrirCarta, cards }) {
                                         <>
                                             <p>{answer}</p>
                                             <ContainerBotoes>
-                                                <BotoesStyle corBotao={VERMELHO}>Não Lembrei</BotoesStyle>
-                                                <BotoesStyle corBotao={AMARELO}>Quase Lembrei</BotoesStyle>
-                                                <BotoesStyle corBotao={VERDE}>Zap</BotoesStyle>
-
+                                                <BotoesStyle onClick={()=>jaRespondi('naoLembrei')} corBotao={VERMELHO}>Não Lembrei</BotoesStyle>
+                                                <BotoesStyle onClick={()=>jaRespondi('quaseLembrei')} corBotao={AMARELO}>Quase Lembrei</BotoesStyle>
+                                                <BotoesStyle onClick={()=>jaRespondi('lembrei')} corBotao={VERDE}>Zap</BotoesStyle>
                                             </ContainerBotoes>
                                         </>
                                     )

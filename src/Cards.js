@@ -4,6 +4,11 @@ import { useState } from "react"
 export default function Cards({cards}) {
 
     const [ cartaAberta, setCartaAberta] = useState(null)
+    const [ listaConcluidas, setListaConcluidas] = useState([])
+
+    function jaRespondi(status){
+        console.log(status)
+    }
 
     return (
         <>
@@ -14,6 +19,7 @@ export default function Cards({cards}) {
                 abrirCarta={()=>setCartaAberta(index)}
                 abriuCarta={index === cartaAberta}
                 cards={cards}
+                jaRespondi={()=>jaRespondi()}
             />))}
         </>
     )
