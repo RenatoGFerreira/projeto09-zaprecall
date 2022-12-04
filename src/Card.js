@@ -2,11 +2,15 @@ import play from "./assets/img/seta_play.png"
 import styled from "styled-components"
 import virar from "./assets/img/seta_virar.png"
 import { useState } from "react"
+import coresBotoes from "./components/cores"
+
 
 
 
 export default function Card({ indice, abriuCarta, abrirCarta, cards }) {
 
+    const {VERDE, AMARELO, VERMELHO} = coresBotoes
+    const {question, answer} = cards
     const [CartaVirada, setCartaVirada] = useState(false)
 
     return (
@@ -19,18 +23,19 @@ export default function Card({ indice, abriuCarta, abrirCarta, cards }) {
                                 !CartaVirada ?
                                     (
                                         <>
-                                            <p>{cards.question}</p>
+                                            <p>{question}</p>
                                             <img src={virar} alt="seta virar" onClick={()=>(setCartaVirada(true))}/>
                                         </>
                                     )
                                     :
                                     (
                                         <>
-                                            <p>{cards.answer}</p>
+                                            <p>{answer}</p>
                                             <ContainerBotoes>
-                                                <BotoesStyle>Não Lembrei</BotoesStyle>
-                                                <BotoesStyle>Quase Lembrei</BotoesStyle>
-                                                <BotoesStyle>Zap</BotoesStyle>
+                                                <BotoesStyle corBotao={VERMELHO}>Não Lembrei</BotoesStyle>
+                                                <BotoesStyle corBotao={AMARELO}>Quase Lembrei</BotoesStyle>
+                                                <BotoesStyle corBotao={VERDE}>Zap</BotoesStyle>
+
                                             </ContainerBotoes>
                                         </>
                                     )
@@ -101,9 +106,8 @@ const CardAberto = styled.div`
 
 const ContainerBotoes = styled.div`
     display: flex;
-    width: 80%;
+    width: 100%;
     justify-content: space-between;
-    margin: 20px;
 `
 
 const BotoesStyle = styled.button`
@@ -118,9 +122,9 @@ const BotoesStyle = styled.button`
     justify-content: center;
     text-align: center;
     color: #FFFFFF;
-    background: blue;
+    background: ${props => props.corBotao};
     border-radius: 5px;
-    border: 1px solid blue;
+    border: 1px solid ${props => props.corBotao};
     padding:5px;
 `
 
