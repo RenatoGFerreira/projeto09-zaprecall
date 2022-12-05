@@ -40,6 +40,7 @@ export default function Cards({ cards, coresBotoes, zap, quaseLembrei, naoLembre
                     naoLembrei={naoLembrei}
                     marcarRespondidas={() => marcarRespondidas(index)}
                     respondidas={respondidas}
+                    datatest="flashcard"
                 />))}
         </>
     )

@@ -15,13 +15,13 @@ export default function Card({ indice, abriuCarta, abrirCarta, cards, coresBotoe
             {
                 abriuCarta ?
                     (
-                        <CardAberto>
+                        <CardAberto data-test="flashcard-test">
                             {
                                 !CartaVirada ?
                                     (
                                         <>
                                             <p>{question}</p>
-                                            <img src={virar} alt="seta virar" onClick={()=>(setCartaVirada(true))}/>
+                                            <img src={virar} alt="seta virar" onClick={()=>(setCartaVirada(true))} data-test="turn-btn"/>
                                         </>
                                     )
                                     :
@@ -29,9 +29,9 @@ export default function Card({ indice, abriuCarta, abrirCarta, cards, coresBotoe
                                         <>
                                             <p>{answer}</p>
                                             <ContainerBotoes onClick={marcarRespondidas}>
-                                                <BotoesStyle onClick={naoLembrei} corBotao={VERMELHO}>Não Lembrei</BotoesStyle>
-                                                <BotoesStyle onClick={quaseLembrei} corBotao={AMARELO}>Quase Lembrei</BotoesStyle>
-                                                <BotoesStyle onClick={zap} corBotao={VERDE}>Zap</BotoesStyle>
+                                                <BotoesStyle onClick={naoLembrei} corBotao={VERMELHO} data-test="no-btn">Não Lembrei</BotoesStyle>
+                                                <BotoesStyle onClick={quaseLembrei} corBotao={AMARELO} data-test="partial-btn">Quase Lembrei</BotoesStyle>
+                                                <BotoesStyle onClick={zap} corBotao={VERDE} data-test="zap-btn">Zap</BotoesStyle>
                                             </ContainerBotoes>
                                         </>
                                     )
@@ -40,9 +40,9 @@ export default function Card({ indice, abriuCarta, abrirCarta, cards, coresBotoe
                     )
                     :
                     (
-                        <CardFechado onClick={abrirCarta}>
+                        <CardFechado onClick={abrirCarta} data-test="flashcard-test">
                             <h1>Pergunta {indice + 1}</h1>
-                            <img src={play} alt="play" />
+                            <img src={play} alt="play" data-test="play-btn"/>
                         </CardFechado>
                     )
             }
