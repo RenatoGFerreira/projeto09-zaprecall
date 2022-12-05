@@ -1,26 +1,25 @@
 import Card from "./Card"
 import { useState } from "react"
 
-export default function Cards({cards}) {
+export default function Cards({ cards, coresBotoes, zap, quaseLembrei, naoLembrei }) {
 
-    const [ cartaAberta, setCartaAberta] = useState(null)
-    const [ listaConcluidas, setListaConcluidas] = useState([])
+    const [cartaAberta, setCartaAberta] = useState(null)
 
-    function jaRespondi(status){
-        console.log(status)
-    }
 
     return (
         <>
             {cards.map((cards, index) => (
-            <Card 
-                key={index} 
-                indice={index}
-                abrirCarta={()=>setCartaAberta(index)}
-                abriuCarta={index === cartaAberta}
-                cards={cards}
-                jaRespondi={()=>jaRespondi()}
-            />))}
+                <Card
+                    key={index}
+                    indice={index}
+                    abrirCarta={() => setCartaAberta(index)}
+                    abriuCarta={index === cartaAberta}
+                    cards={cards}
+                    coresBotoes={coresBotoes}
+                    zap={zap}
+                    quaseLembrei={quaseLembrei}
+                    naoLembrei={naoLembrei}
+                />))}
         </>
     )
 }

@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
-export default function Footer({cards}) {
+export default function Footer({cards, listaRespondidas}) {
     return (
         <FooterConcluido>
-            <h1>X/{cards.length} Concluídos</h1>
+            <h1>{listaRespondidas.length}/{cards.length} Concluídos</h1>
         </FooterConcluido>
     )
 }
