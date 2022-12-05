@@ -3,47 +3,61 @@ import styled from "styled-components";
 import Logo from "./Logo"
 import Cards from "./Cards";
 import Footer from "./Footer"
+import PaginaInicial from "./PaginaInicial";
 import cards from "./components/cards"
 import coresBotoes from "./components/cores";
 import { useState } from "react";
-//import { useState } from "react";
 
 
 export default function App() {
 
   const [listaRespondidas, setListaRespondidas] = useState([])
-  console.log(listaRespondidas)
+  const [objetoUsado, setObjetoUsado] = useState()
 
-  function zap(){
-    const newArray = [...listaRespondidas, {status:"zap"}]
-    setListaRespondidas(newArray)
-    console.log("zap")
+  const [alteraPagina, setAlteraPagina] = useState(false)
+
+  function iniciarZapRecall(){
+    setAlteraPagina(true)
   }
 
-  function quaseLembrei(){
-    const newArray = [...listaRespondidas, {status:"quaseLembrei"}]
+  function zap() {
+    const newArray = [...listaRespondidas, "zap"]
+    setObjetoUsado("zap")
     setListaRespondidas(newArray)
-    console.log("quaseLembrei")
   }
 
-  function naoLembrei(){
-    const newArray = [...listaRespondidas, {status:"naoLembrei"}]
+  function quaseLembrei() {
+    const newArray = [...listaRespondidas, "quaseLembrei"]
+    setObjetoUsado("quaseLembrei")
     setListaRespondidas(newArray)
-    console.log("nãoLembrei")
+  }
+
+  function naoLembrei() {
+    const newArray = [...listaRespondidas, "naoLembrei"]
+    setObjetoUsado("naoLembrei")
+    setListaRespondidas(newArray)
   }
 
   return (
     <ScreenContainer>
       <GlobalStyle />
-      <Logo />
-      <Cards 
-        cards={cards} 
-        coresBotoes={coresBotoes} 
-        zap={() => zap()}
-        quaseLembrei={() => quaseLembrei()}
-        naoLembrei={() => naoLembrei()}
-      />
-      <Footer cards={cards} listaRespondidas={listaRespondidas} />
+      {
+        !alteraPagina ?
+          <PaginaInicial iniciarZapRecall={()=> iniciarZapRecall()} />
+          :
+          <>
+            <Logo />
+            <Cards
+              cards={cards}
+              coresBotoes={coresBotoes}
+              zap={() => zap()}
+              quaseLembrei={() => quaseLembrei()}
+              naoLembrei={() => naoLembrei()}
+              objetoUsado={objetoUsado}
+            />
+            <Footer cards={cards} listaRespondidas={listaRespondidas} />
+          </>
+      }
     </ScreenContainer>
   );
 }

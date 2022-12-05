@@ -3,17 +3,13 @@ import styled from "styled-components"
 import virar from "./assets/img/seta_virar.png"
 import { useState } from "react"
 
-export default function Card({ indice, abriuCarta, abrirCarta, cards, coresBotoes, zap, quaseLembrei, naoLembrei}) {
+export default function Card({ indice, abriuCarta, abrirCarta, cards, coresBotoes, zap, quaseLembrei, naoLembrei, marcarRespondidas}) {
 
     const {VERDE, AMARELO, VERMELHO} = coresBotoes
     const {question, answer} = cards
     const [CartaVirada, setCartaVirada] = useState(false)
-    // const [statusResposta, setStatusResposta] = useState({})
 
-    // function jaRespondi(status){
-    //     setStatusResposta({index:indice, status: status})  
-    // }
-
+    
     return (
         <>
             {
@@ -32,7 +28,7 @@ export default function Card({ indice, abriuCarta, abrirCarta, cards, coresBotoe
                                     (
                                         <>
                                             <p>{answer}</p>
-                                            <ContainerBotoes>
+                                            <ContainerBotoes onClick={marcarRespondidas}>
                                                 <BotoesStyle onClick={naoLembrei} corBotao={VERMELHO}>Não Lembrei</BotoesStyle>
                                                 <BotoesStyle onClick={quaseLembrei} corBotao={AMARELO}>Quase Lembrei</BotoesStyle>
                                                 <BotoesStyle onClick={zap} corBotao={VERDE}>Zap</BotoesStyle>
