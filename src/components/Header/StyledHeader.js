@@ -4,6 +4,8 @@ export const LogoContainer= styled.div`
     display: flex;
     align-items: center;
     margin: 40px 0 20px 0;
+    position: fixed;
+    top: 0;
 
         img {
             width: 52px;
