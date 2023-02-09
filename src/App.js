@@ -3,9 +3,7 @@ import DeckCards from "./pages/DeckCards/DeckCards";
 import InitialPage from "./pages/InitialPage/InitialPage"
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
-
 export default function App() {
-
   return (
     <BrowserRouter>
       <Routes>

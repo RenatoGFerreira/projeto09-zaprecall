@@ -7,7 +7,7 @@ export const ScreenItens = styled.div`
     align-items: center;
     img{
             width: 136px;
-            height: 1game61px;
+            height: 160px;
         }
         h1{
             font-family: 'Righteous', cursive;

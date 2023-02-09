@@ -6,6 +6,7 @@ export const LogoContainer= styled.div`
     margin: 40px 0 20px 0;
     position: fixed;
     top: 0;
+    z-index: 1;
 
         img {
             width: 52px;
