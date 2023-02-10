@@ -14,3 +14,8 @@ export const ScreenContainer = styled.div`
     width: 100vw;
     min-height: 100vh;
 `
+
+export const BodyContainer = styled.div`
+    margin-top: 112px;
+    margin-bottom: 70px;
+`
