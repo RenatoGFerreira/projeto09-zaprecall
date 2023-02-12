@@ -35,4 +35,23 @@ export const ScreenItens = styled.div`
             border-radius: 5px;
             padding:5px;
         }
+
+        select{
+            width: 246px;
+            height: 40PX;
+            font-family: 'Recursive';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+
+            text-align: center;
+            line-height: normal;
+            color: #D70900;
+            background: #fff;
+            border-radius: 5px;
+            border: 1px solid black;
+            padding:5px;
+            margin-bottom: 10px;
+        }
+        
 `
