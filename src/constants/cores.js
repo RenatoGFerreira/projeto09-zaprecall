@@ -1,8 +1,5 @@
-const coresBotoes = {
-    VERDE: "#2FBE34",
-    AMARELO: "#FF922E",
-    VERMELHO: "#FF3030",
-    CINZA: "#333333"
-}
 
-export default coresBotoes
+export const VERDE = "#2FBE34"
+export const AMARELO = "#FF922E"
+export const VERMELHO = "#FF3030"
+export const CINZA = "#333333"

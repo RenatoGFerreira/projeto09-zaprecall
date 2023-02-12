@@ -20,6 +20,7 @@ export const ClosedQuestion = styled.div`
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
+        text-decoration: ${props => props.status === "not answered" ? "none" : "line-through"};
         color: ${props => {
             switch(props.status){
                 case "correct":
@@ -67,21 +68,23 @@ export const ContainerButtons = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    button{
-        width: 90px;
-        font-family: 'Recursive';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: #FFFFFF;
-        background: blue;
-        border-radius: 5px;
-        border: 1px solid blue;
-        padding:5px;
-    }
+
+`
+
+export const ButtonAnswer = styled.button`
+    width: 90px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFFFFF;
+    background: ${props => props.background};
+    border-radius: 5px;
+    border: 1px solid ${props => props.background};
+    padding:5px;
 `

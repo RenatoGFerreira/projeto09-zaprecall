@@ -30,6 +30,9 @@ const GLobalStyle = createGlobalStyle`
     body {
         line-height: 1;
     }
+    h1{
+        font-family: 'Recursive';
+    }
     ol, ul {
         list-style: none;
     }

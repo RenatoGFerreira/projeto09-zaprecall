@@ -7,6 +7,11 @@ export const LogoContainer= styled.div`
     position: fixed;
     top: 0;
     z-index: 1;
+        a{
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
 
         img {
             width: 52px;

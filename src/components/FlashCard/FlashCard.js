@@ -1,9 +1,10 @@
-import { ClosedQuestion, OpenedQuestion, ContainerButtons } from "./StyledFlashCard"
+import { ClosedQuestion, OpenedQuestion, ContainerButtons, ButtonAnswer } from "./StyledFlashCard"
 import { useState } from "react"
 import virar from "../../assets/img/seta_virar.png"
 import StatusIcon from "../StatusIcon"
+import { VERDE, VERMELHO, AMARELO } from "../../constants/cores"
 
-export default function FlashCard({ index, card }) {
+export default function FlashCard({ index, card, increaseCounter, createAnswerList }) {
 
     const [started, setStarted] = useState(false)
     const [turned, setTurned] = useState(false)
@@ -11,7 +12,7 @@ export default function FlashCard({ index, card }) {
     const [status, setStatus] = useState("not answered")
 
     function openQuestion() {
-        if(!finished){
+        if (!finished) {
             setStarted(true)
             setFinished(true)
         }
@@ -25,9 +26,9 @@ export default function FlashCard({ index, card }) {
         setStarted(false)
         setTurned(false)
         setStatus(questionStatus)
+        increaseCounter()
+        createAnswerList(questionStatus)
     }
-
-
 
 
     return (
@@ -48,9 +49,9 @@ export default function FlashCard({ index, card }) {
                     <OpenedQuestion>
                         {card.answer}
                         <ContainerButtons>
-                            <button onClick={() => closeQuestion("wrong")}>Não Lembrei</button>
-                            <button onClick={() => closeQuestion("almost")}>Quase Lembrei</button>
-                            <button onClick={() => closeQuestion("correct")}>Zap!</button>
+                            <ButtonAnswer background={VERMELHO} onClick={() => closeQuestion("wrong")}>Não Lembrei</ButtonAnswer>
+                            <ButtonAnswer background={AMARELO} onClick={() => closeQuestion("almost")}>Quase Lembrei</ButtonAnswer>
+                            <ButtonAnswer background={VERDE} onClick={() => closeQuestion("correct")}>Zap!</ButtonAnswer>
                         </ContainerButtons>
                     </OpenedQuestion>
                 )
