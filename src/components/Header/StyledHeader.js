@@ -2,11 +2,16 @@ import styled from "styled-components";
 
 export const LogoContainer= styled.div`
     display: flex;
-    align-items: center;
-    margin: 40px 0 20px 0;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0px 0 20px 0;
     position: fixed;
     top: 0;
+    width: 100vw;
+    height: 90px;
+    margin-bottom: 10px;
     z-index: 1;
+    background-image: linear-gradient(to top, transparent, #50E3C2 50%, #50E3C2 30%);
         a{
             text-decoration: none;
             display: flex;

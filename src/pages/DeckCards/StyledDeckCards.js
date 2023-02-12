@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const BodyContainer = styled.div`
     margin-top: 112px;
-    margin-bottom: 70px;
+    margin-bottom: 120px;
 `
 
 export const AnswersContainer = styled.div`
